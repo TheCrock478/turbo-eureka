@@ -60,7 +60,7 @@ draw(context){
 }
 
 const linesArray = [];
-const numberOfLines = 1;
+const numberOfLines = 10;
 for(let i = 0; i < numberOfLines; i ++){
    linesArray.push(new Line(canvas));
 }
