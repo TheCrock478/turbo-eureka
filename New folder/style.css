@@ -1,0 +1,39 @@
+
+*{
+    margin-top: 20;
+    margin-left: 20px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1{
+
+    font-family: Georgia "Times New Roman", serif;
+    font-size: 130px;
+    color: rgb(84, 223, 66);
+
+}
+
+#belowTheHeader{
+
+   color:rgb(170, 22, 138);
+}
+
+#paragraph{
+    
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    color: rgb(26, 54, 28);
+
+}
+
+canvas{
+
+    border: 10px solid rgb(201, 12, 160);
+    position: absolute;
+
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}

@@ -1,17 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>LinesDrawing</title>
-
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scroll-Trigger</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
-
   <body>
-    <h1>Keiths Portfoli0</h1>
-    <p></p>
-    <canvas id="canvas1"></canvas>
-    <script src="scriptRandomLines1.js"></script>
+    <h1 class="large-text" data-text="Scroll Down">Keith Vickers</h1>
 
-    <script></script>
+    <div id="sub-heading1" data-text="multimedia-designer">
+      Multimedia Design
+    </div>
+
+    <div class="geometric-bg">
+      <div class="shape circle"></div>
+      <div class="shape square"></div>
+      <div class="shape triangle"></div>
+    </div>
+
+    <section class="section">
+      <h1 class="large-text" data-text="Keep Going">Keep Going</h1>
+    </section>
+    <section class="section">
+      <h1 class="large-text" data-text="Almost There">Almost There</h1>
+    </section>
+    <section class="section">
+      <h1 class="large-text" data-text="You Made It!">You Made It!</h1>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="app.js"></script>
   </body>
 </html>

@@ -1,7 +1,7 @@
 const canvas = document.getElementById("canvas1");
 const ctx = canvas.getContext("2d");
-canvas.width = 700;
-canvas.height = 700;
+canvas.width = 400;
+canvas.height = 400;
 canvas.style.backgroundColor = "black";
 console.log(canvas);
 
@@ -31,7 +31,14 @@ class Line {
             this.canvas = canvas;
             this.x = Math.random() * this.canvas.Width;
             this.y = Math.random() * this.canvas.Height;
-            this.history = [{x: this.x, y: this.y}];
+           
+            this.history = [
+                {
+                    x: this.x,
+                    y: this.y
+                }
+            ];
+
             this.lineWidth = Math.floor(Math.random() * 15 + 1);
             this.hue = Math.floor(Math.random() * 360);
             this.maxLength = 4;
@@ -45,9 +52,12 @@ draw(context){
     
     for(let i = 0; i < this.history.length; i++){
     context.lineTo(this.history[i].x, this.history[i].y);
-}
-    context.stroke();
- }
+    }
+
+context.stroke();
+
+  }
+
  update(){
 
      this.x = Math.random() * this.canvas.width;
@@ -60,7 +70,7 @@ draw(context){
 }
 
 const linesArray = [];
-const numberOfLines = 10;
+const numberOfLines = 1;
 for(let i = 0; i < numberOfLines; i ++){
    linesArray.push(new Line(canvas));
 }
