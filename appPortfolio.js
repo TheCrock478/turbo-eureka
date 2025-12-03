@@ -57,47 +57,47 @@ document.addEventListener("DOMContentLoaded", () => {
     // ----------------------------------------------------------------------------------
 
 
-    // --- OP ART LINES GENERATION & CONTINUOUS ANIMATION ---
-    // function generateOpArtLines(container, count) {
-    //     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    //     svg.setAttribute("width", "100%");
-    //     svg.setAttribute("height", "100%");
+    --- OP ART LINES GENERATION & CONTINUOUS ANIMATION ---
+    function generateOpArtLines(container, count) {
+        const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        svg.setAttribute("width", "100%");
+        svg.setAttribute("height", "100%");
         
-    //     const containerHeight = window.innerHeight; 
-    //     const spacing = window.innerWidth / count; 
+        const containerHeight = window.innerHeight; 
+        const spacing = window.innerWidth / count; 
 
-    //     for (let i = 0; i < count; i++) {
-    //         const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
-    //         const xPos = i * spacing;
+        for (let i = 0; i < count; i++) {
+            const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+            const xPos = i * spacing;
             
-    //         line.setAttribute("x1", xPos);
-    //         line.setAttribute("y1", 0);
-    //         line.setAttribute("x2", xPos);
-    //         line.setAttribute("y2", containerHeight);
-    //         line.setAttribute("stroke", "black");
-    //         line.setAttribute("stroke-width", 1); 
-    //         line.classList.add("op-line");
+            line.setAttribute("x1", xPos);
+            line.setAttribute("y1", 0);
+            line.setAttribute("x2", xPos);
+            line.setAttribute("y2", containerHeight);
+            line.setAttribute("stroke", "black");
+            line.setAttribute("stroke-width", 1); 
+            line.classList.add("op-line");
 
-    //         svg.appendChild(line);
-    //     }
-    //     container.appendChild(svg);
-    // }
+            svg.appendChild(line);
+        }
+        container.appendChild(svg);
+    }
     
-    // generateOpArtLines(opArtContainer, 200); 
-    // const opLines = gsap.utils.toArray(".op-line");
+    generateOpArtLines(opArtContainer, 200); 
+    const opLines = gsap.utils.toArray(".op-line");
 
-    // // Op Art Continuous Animation
-    // gsap.to(opLines, {
-    //     y: (i) => { return i % 2 === 0 ? 50 : -50; },
-    //     duration: 1.5,
-    //     ease: "sine.inOut",
-    //     repeat: -1, 
-    //     yoyo: true, 
-    //     stagger: {
-    //         each: 0.05,
-    //         from: "center",
-    //     }
-    // });
+    // Op Art Continuous Animation
+    gsap.to(opLines, {
+        y: (i) => { return i % 2 === 0 ? 50 : -50; },
+        duration: 1.5,
+        ease: "sine.inOut",
+        repeat: -1, 
+        yoyo: true, 
+        stagger: {
+            each: 0.05,
+            from: "center",
+        }
+    });
 
     // --- BUTTON CLICK LISTENERS ---
     if (bottomCircle1) bottomCircle1.addEventListener("click", () => { console.log("Circle 1 Clicked"); });
