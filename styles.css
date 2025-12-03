@@ -1,168 +1,183 @@
-/* --- GLOBAL RESET & TYPOGRAPHY --- */
-body {
+/*
+|--------------------------------------------------------------------------
+| CSS Reset and Global Styles
+|--------------------------------------------------------------------------
+*/
+
+* {
     margin: 0;
     padding: 0;
-    font-family: 'Quicksand', sans-serif; 
-    background-color: #f8f2e9; 
-    color: #1a1a1a;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
 }
 
-h1, p {
-    margin: 0;
+body {
+    background-color: #f8f8f8;
+    color: #333;
+    line-height: 1.6;
+    height: 300vh; /* Ensures sufficient scrollable space for testing */
 }
 
-/* --- OP ART SECTION (Fixed Background) --- */
-/* .op-art-section {
-    position: fixed; 
-    top: 0; left: 0;
-    width: 100vw; height: 100vh;
-    z-index: -1; 
-    background-color: transparent; 
-}
+/*
+|--------------------------------------------------------------------------
+| Layout and Positioning (Hero, Graphic, Main Content)
+|--------------------------------------------------------------------------
+*/
 
-.op-line {
-    stroke: black; 
-    stroke-width: 10px; 
-    stroke-linecap: butt; 
-} */
-
-/* --- MAIN SCROLLING CONTENT WRAPPER --- */
 .main-content-wrapper {
-    position: relative; 
-    /* Reduced min-height to pull the next section up */
-    min-height: 150vh; 
-    padding: 10vh 5%;
-    z-index: 2; 
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 0 5%;
 }
 
-/* --- HERO TEXT AND STATIC GRAPHIC --- */
 .hero-and-graphic-container {
-    position: relative;
-    /* Reduced min-height to pull the next section up */
-    min-height: 50vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10vh;
+    padding-bottom: 5vh;
 }
 
 .hero-section {
-    position: absolute;
-    top: 10vh;
-    left: 0;
-    z-index: 5;
+    max-width: 400px;
 }
 
 .hero-heading {
-    font-size: 5.5rem; 
-    font-weight: 700; 
-    line-height: 1; 
-    margin-bottom: 20px; 
-    white-space: nowrap; 
+    font-size: 3em;
+    font-weight: 700;
+    margin-bottom: 0.5em;
 }
 
 .hero-subtitle {
-    font-size: 1.75rem; 
-    font-weight: 400; 
-    line-height: 1.4;
-    white-space: nowrap; 
-    max-width: none; 
-    color: #4a4a4a; 
+    font-size: 1.2em;
+    font-weight: 400;
 }
+
+/* |--------------------------------------------------------------------------
+| Spinning Graphic Styles (Containers and Circles)
+|--------------------------------------------------------------------------
+*/
 
 .graphic-wrapper {
-    position: absolute;
-    top: 10%;
-    right: 5%; 
-    z-index: 4;
+    /* Styles for the small corner SVG */
+    opacity: 0.2;
 }
 
-/* ------------------------------------------------------------------ */
-/* --- SCROLLABLE CIRCLES AND BUTTONS CONTAINER --- */
 .circles-and-buttons-container {
-    /* Now uses flexbox for flow and centering */
+    /* This container is likely pinned by GSAP/ScrollTrigger in appPortfolio.js */
+    position: fixed; /* This may be overridden by GSAP */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
     display: flex;
-    flex-direction: column; 
-    align-items: center; 
     justify-content: center;
-    position: relative; 
-    min-height: 100vh; 
-    pointer-events: none; 
-    /* CRITICAL FIX: Pulls the section up to overlap the hero area */
-    margin-top: -30vh; 
+    align-items: center;
+    pointer-events: none; /* Allows clicks to pass through to content below */
 }
 
-/* --- CIRCLES CONTAINER (The stack position) --- */
 .circles-container {
-    position: relative; 
-    width: 600px; 
-    height: 600px; 
-    pointer-events: all; 
-    margin-top: 0; /* Remove top margin, rely on container margin */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-/* --- ROTATION LAYER --- */
 .rotation-spin-layer {
-    position: relative; 
-    width: 100%;       
-    height: 100%;      
-    transform-origin: 50% 50%;
+    /* The layer that rotates the SVG circles */
+    position: relative;
+    width: 600px; /* Base size for the largest circle */
+    height: 600px;
 }
 
-/* --- LARGE CIRCLE STYLES (Your specific colors) --- */
 .circle-1, .circle-2, .circle-3 {
     position: absolute;
     border-radius: 50%;
-    width: 100%;
-    height: 100%;
-    opacity: 1; 
+    /* Default coloring, you will customize this */
+    fill: none;
+    stroke: #333;
+    stroke-width: 1px;
+    transform: translate(-50%, -50%);
 }
 
-.circle-1 { 
-    width: 600px; 
-    height: 600px; 
-    background-color: rgb(232, 150, 22); /* Orange */
-    transform: translate(0px, 0px); 
-}
-
-.circle-2 { 
-    width: 400px; 
-    height: 400px; 
-    background-color: rgb(223, 95, 50); /* Salmon */
-    transform: translate(0px,100px); 
-}
+.circle-1 { top: 50%; left: 50%; width: 600px; height: 600px; }
+.circle-2 { top: 50%; left: 50%; width: 400px; height: 400px; }
+.circle-3 { top: 50%; left: 50%; width: 300px; height: 300px; }
 
 
-.circle-3 { 
-    width: 300px; 
-    height: 300px; 
-    background-color: rgb(218, 42, 53); /* Red */
-    transform: translate(0px,150px); 
-}
+/*
+|--------------------------------------------------------------------------
+| Buttons and Wrapper
+|--------------------------------------------------------------------------
+*/
 
-/* --- BOTTOM BUTTONS WRAPPER (Sits below circles in the flow) --- */
 .bottom-buttons-wrapper {
-    position: absolute; 
-    bottom: 5%; 
-    width: 400px; 
+    position: absolute;
+    bottom: 5vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
     display: flex;
-    justify-content: space-between; 
-    align-items: center;
-    z-index: 10;
-    pointer-events: all; 
+    justify-content: space-around;
+    pointer-events: auto; /* Re-enable pointer events for the buttons */
+    /* GSAP will animate this wrapper */
 }
 
-/* --- BUTTON BASE/COLOR STYLES --- */
 .circle-button1, .circle-button2, .circle-button3 {
-    width: 100px; 
-    height: 100px; 
-    border-radius: 50%; 
-    color: white; 
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #555;
+    color: white;
+    font-size: 0.8em;
     cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-    margin: 0; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    font-size: 1.1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s;
+    /* Styles for the SVG elements */
+    overflow: visible;
 }
 
-.circle-button1 { background-color: rgb(232, 150, 22); }
-.circle-button2 { background-color: rgb(223, 95, 50); }
-.circle-button3 { background-color: rgb(218, 42, 53); }
+.circle-button1 text, .circle-button2 text, .circle-button3 text {
+    fill: white;
+}
+
+.circle-button1:hover, .circle-button2:hover, .circle-button3:hover {
+    background-color: #777;
+}
+
+/*
+|--------------------------------------------------------------------------
+| OP ART SECTION STYLES (REQUIRED FIX)
+|--------------------------------------------------------------------------
+*/
+
+.op-art-container {
+    /* HIDE THE SECTION BY DEFAULT */
+    display: none; 
+    
+    /* Set dimensions for full screen appearance */
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 100; /* Ensure it layers above other content when active */
+}
+
+.op-art-stripes {
+    /* This creates the visual pattern */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%; /* Wider than viewport to allow horizontal movement */
+    height: 100%;
+    
+    /* Creates the black and white stripes */
+    background: repeating-linear-gradient(
+        90deg,
+        #000000 0,
+        #000000 100px,
+        #FFFFFF 100px,
+        #FFFFFF 200px
+    );
+}
