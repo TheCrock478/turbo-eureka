@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     // 1. Element Selections
     const graphic = document.querySelector(".graphic-wrapper");
-    const opArtContainer = document.getElementById("opArtContainer");
+   const opArtContainer = document.getElementById("op-art-section");
     
     const spinLayer = document.querySelector(".rotation-spin-layer"); 
     
@@ -57,7 +57,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // ----------------------------------------------------------------------------------
 
 
-    --- OP ART LINES GENERATION & CONTINUOUS ANIMATION ---
     function generateOpArtLines(container, count) {
         const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
         svg.setAttribute("width", "100%");
